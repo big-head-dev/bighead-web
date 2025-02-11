@@ -1,0 +1,9 @@
+rotate-270 transition duration-300 ease-in-out hover:rotate-0
+ transition duration-300 ease-in-out hover:-rotate-270
+
+{/* hero */}
+      {/* intro (20 years of dev blah blah) */}
+      {/* excellence in industries */}
+      {/* languages */}
+      {/* currently working on */}
+      {/* footer    */}

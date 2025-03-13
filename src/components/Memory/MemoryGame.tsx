@@ -60,8 +60,16 @@ const MemoryGame = ({ className, content }: Props) => {
     setCards((prevCards) => prevCards.map((card) => (card.id === id ? { ...card, flipped: true } : card)))
   }
 
+  const playAgainClick = () => {
+    initializeGame()
+  }
+
+  const hireMeClick = () => {
+    //TODO: go to modal form
+  }
+
   return (
-    <div className={cn('', className)}>
+    <div className={cn('relative', className)}>
       <div className="grid grid-cols-4  justify-around items-center gap-5 p-4 rounded-2xl border-1 border-bh-green">
         {cards.map((card) => (
           <CardComponent
@@ -73,9 +81,22 @@ const MemoryGame = ({ className, content }: Props) => {
         ))}
       </div>
       {gameWon && (
-        <div className="congratulations">
-          Congratulations! You've matched all the cards!{' '}
-          <button onClick={initializeGame}>🚀 Play Again</button>
+        <div className="absolute inset-0 flex flex-col items-center justify-center bg-bh-dblue/40">
+          <div className="flex flex-col gap-2 -rotate-25">
+            <span
+              className="text-4xl font-bold text-bh-red"
+              style={{ textShadow: '1px 1px 2px var(--color-bh-lgray' }}>
+              You won!
+            </span>
+            <button
+              className="bg-bh-dgray p-3 rounded-full hover:bg-bh-dgray cursor-pointer"
+              onClick={playAgainClick}>
+              🚀 Play Again
+            </button>
+            <button className="bg-bh-dgray p-3 rounded-full cursor-pointer" onClick={hireMeClick}>
+              💪 Hire Me
+            </button>
+          </div>
         </div>
       )}
     </div>

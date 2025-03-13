@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 
 @theme {
+  --font-display: 'Urbanist', 'sans-serif';
   --color-bh-lgray: oklch(0.97 0 240);
   --color-bh-dgray: oklch(0.2 0 240);
   --color-bh-dblue: oklch(0.15 0.09 264);

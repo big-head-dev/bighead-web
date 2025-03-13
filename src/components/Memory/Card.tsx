@@ -15,14 +15,14 @@ type Props = {
 
 export const CardComponent = ({ card, canFlip, onCardFlip }: Props) => {
   const cardStyling = cn(
-    'flex justify-center items-center rounded-1 drop-shadow-lg bg-bh-lgray w-14 md:w-20 h-18 md:h-28 cursor-pointer transition-transform',
+    'flex justify-center items-center rounded-1 drop-shadow-lg bg-bh-lgray w-14 h-18 cursor-pointer transition-transform',
     {
       'duration-300 rotate-y-180 bg-bh-lblue': card.flipped,
       'duration-0 transform-none bg-bh-green': card.matched,
     }
   )
   const cardTextStyling = cn('md:text-2xl', {
-    'md:text-4xl': !card.flipped && !card.matched,
+    // 'md:text-4xl': !card.flipped && !card.matched,
     'rotate-y-180': card.flipped,
   })
   return (

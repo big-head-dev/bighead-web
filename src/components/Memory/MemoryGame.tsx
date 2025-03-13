@@ -62,7 +62,7 @@ const MemoryGame = ({ className, content }: Props) => {
 
   return (
     <div className={cn('', className)}>
-      <div className="grid grid-cols-4 md:grid-cols-6 justify-around items-center gap-5 p-4 rounded-2xl border-1 border-bh-green">
+      <div className="grid grid-cols-4  justify-around items-center gap-5 p-4 rounded-2xl border-1 border-bh-green">
         {cards.map((card) => (
           <CardComponent
             key={card.id}

@@ -21,7 +21,7 @@ export const CardComponent = ({ card, canFlip, onCardFlip }: Props) => {
       'duration-0 transform-none bg-bh-green': card.matched,
     }
   )
-  const cardTextStyling = cn('md:text-2xl', {
+  const cardTextStyling = cn('md:text-xl', {
     // 'md:text-4xl': !card.flipped && !card.matched,
     'rotate-y-180': card.flipped,
   })

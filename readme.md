@@ -5,6 +5,7 @@
 - [ ] Add provider for stocks
 - [ ] Dev stock tiles
 - [ ] Test motion
+- [ ] Add more about content
 - [ ] Add contact modal
 - [ ] Add nav items
 - [ ] Wire up google analytics

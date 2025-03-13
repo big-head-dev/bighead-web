@@ -1,40 +1,13 @@
 import { cn } from '../utils/cn'
-import ghubLogo from '/github-mark.svg'
-import xLogo from '/x-logo.svg'
+import bhLogo from '/logo-white.svg'
 
-type NavBarProps = {
+type Props = {
   className?: string
   children?: React.ReactNode
 }
-export const NavBar = ({ className, children, ...props }: NavBarProps) => (
-  <nav className={cn('inline-flex gap-4', className)} {...props}>
-    <div className="order-1 text-4xl lg:text-5xl text-blue-950 transition duration-0 group hover:scale-x-[-1] hover:scale-y-[-1]">
-      <span className="font-none group-hover:font-bold">big</span>
-      <span className="font-bold group-hover:font-normal">head</span>
-    </div>
-
-    <ul className="inline-flex items-center gap-4">
-      <li className="order-last transition duration-300 ease-out hover:-rotate-270">
-        <a href="https://github.com/big-head-dev" target="_blank">
-          <img
-            fetchPriority="low"
-            src={ghubLogo}
-            className="size-8"
-            alt="github logo"
-          />
-        </a>
-      </li>
-      <li className="order-first transition duration-300 ease-in-out hover:-rotate-270">
-        <a href="https://x.com/thebigheaddev" target="_blank">
-          <img
-            fetchPriority="low"
-            src={xLogo}
-            className="size-8"
-            alt="x logo"
-          />
-        </a>
-      </li>
-    </ul>
+export const NavBar = ({ className, children, ...props }: Props) => (
+  <nav className={cn('inline-flex gap-4 px-5 md:px-10 md:py-5 py-2 h-sm w-full', className)} {...props}>
+    <img fetchPriority="high" src={bhLogo} alt="bighead development" className="w-30 md:w-50" />
     {children}
   </nav>
 )

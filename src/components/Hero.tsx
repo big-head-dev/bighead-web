@@ -1,13 +1,14 @@
-import astroFrontImg from '/astro-looking-forward.png'
-type HeroProps = {}
-export const Hero = ({}: HeroProps) => {
+type Props = {}
+export const Hero = ({}: Props) => {
   return (
-    <div className="w-dvw min-h-screen max-h-dvh relative flex justify-center items-top">
-      <img
-        src={astroFrontImg}
-        alt="astronaut close up"
-        className="rotate-180 -z-50 h-full w-full max-w-[1000px] object-top"
-      />
-    </div>
+    <section className="flex justify-center mt-15 md:mt-24">
+      <ul className="text-bh-green font-bold text-4xl md:text-5xl lg:text-6xl">
+        <li className="mb-3">20+ years experience</li>
+        <li className="mb-3">14 companies</li>
+        <li className="mb-3">across 6 industries</li>
+        <li className="mb-3">full-stack + remote</li>
+        <li className="mb-3">always learning</li>
+      </ul>
+    </section>
   )
 }

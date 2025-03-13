@@ -1,4 +1,12 @@
+import MemoryGame from './Memory/MemoryGame'
+
 type Props = {}
 export const TechStack = ({}: Props) => {
-  return <div>Tech Stack</div>
+  return (
+    <section className="w-sm md:w-3xl mx-auto mt-15 md:text-lg p-5 flex flex-col">
+      <h2 className="text-3xl md:text-4xl">Experienced in multiple languages and platforms</h2>
+      <p>Play the match game to find out more!</p>
+      <MemoryGame className="mt-2" content={['C#', 'TS/JS', 'CSS', 'Go', 'Java', 'C']} />
+    </section>
+  )
 }

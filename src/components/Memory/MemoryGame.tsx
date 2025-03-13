@@ -1,16 +1,13 @@
 import { useState, useMemo, useEffect } from 'react'
 import { fyShuffle } from '../../utils/random'
 import { Card, CardComponent } from './Card'
-import { StatusBarComponent } from './StatusBar'
+import { cn } from '../../utils/cn'
 
 type Props = {
+  className: string
   content: string[]
 }
-const MemoryGame = ({ content }: Props) => {
-  const levelMultipler = content.length % 2 > 0 ? 3 : 2
-
-  const [level, setLevel] = useState(1)
-  const [numMoves, setNumMoves] = useState(0)
+const MemoryGame = ({ className, content }: Props) => {
   const [cards, setCards] = useState<Card[]>([])
 
   const flippedCardIds = useMemo(() => cards.filter((card) => card.flipped).map((card) => card.id), [cards])
@@ -19,11 +16,10 @@ const MemoryGame = ({ content }: Props) => {
 
   useEffect(() => {
     initializeGame()
-  }, [level])
+  }, [])
 
   useEffect(() => {
     if (flippedCardIds.length >= 2) {
-      setNumMoves((prevMoves) => prevMoves + 1)
       const [firstCardId, secondCardId] = flippedCardIds
       if (cards[firstCardId].content === cards[secondCardId].content) {
         setCards((prevCards) =>
@@ -43,20 +39,11 @@ const MemoryGame = ({ content }: Props) => {
         }, 750)
       }
     }
-    console.log('matchedCardIds', matchedCardIds)
   }, [flippedCardIds])
 
   const initializeGame = () => {
-    //reset the game
-    setNumMoves(0)
-
-    //grab the number of content for the current level
-    const contentForLevel = [
-      ...fyShuffle(content.slice(0, level * levelMultipler)), //grab the first n content for the level
-    ]
-
     //create the content for the cards
-    const shuffledContent = [...contentForLevel, ...contentForLevel].sort(() => Math.random() - 0.5)
+    const shuffledContent = fyShuffle([...content, ...content])
 
     //assign the cards
     setCards(
@@ -69,27 +56,13 @@ const MemoryGame = ({ content }: Props) => {
     )
   }
 
-  const handleChangeLevel = (value: number) => {
-    setLevel((prevLevel) => {
-      if (prevLevel + value <= 0) return 1 //never go below level 1
-      if ((prevLevel + value) * levelMultipler > content.length) return prevLevel //never go above the multiplier of content available
-      return prevLevel + value
-    })
-  }
-
   const handleCardFlip = (id: number) => {
     setCards((prevCards) => prevCards.map((card) => (card.id === id ? { ...card, flipped: true } : card)))
   }
 
   return (
-    <div className="memory-game">
-      <StatusBarComponent
-        title={'Memory Game #3'}
-        currentLevel={level}
-        numOfMoves={numMoves}
-        onChangeLevel={handleChangeLevel}
-      />
-      <div className="game-board">
+    <div className={cn('', className)}>
+      <div className="grid grid-cols-4 md:grid-cols-6 justify-around items-center gap-5 p-4 rounded-2xl border-1 border-bh-green">
         {cards.map((card) => (
           <CardComponent
             key={card.id}

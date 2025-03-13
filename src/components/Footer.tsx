@@ -1,8 +1,8 @@
-type FooterProps = {}
-export const Footer = ({}: FooterProps) => {
+type Props = {}
+export const Footer = ({}: Props) => {
   return (
-    <div className="mt-4 py-4 text-xs min-w-vw text-center">
-      ©️2025 bighead.dev
-    </div>
+    <section className="mt-4 py-4 text-xs text-center">
+      <span className="text-md">&copy;</span>2025 bighead.dev
+    </section>
   )
 }

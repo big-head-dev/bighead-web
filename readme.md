@@ -1,3 +1,3 @@
-#Bighead.dev website
+# Bighead.dev website
 
-Using vite + react + typescript.
+## TODO:

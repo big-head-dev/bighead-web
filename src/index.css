@@ -1,8 +1,17 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
+@theme {
+  --color-bh-lgray: oklch(0.97 0 240);
+  --color-bh-dgray: oklch(0.2 0 240);
+  --color-bh-dblue: oklch(0.15 0.09 264);
+  --color-bh-lblue: oklch(0.67 0.14 264);
+  --color-bh-green: oklch(0.8 0.18 142);
+  --color-bh-red: oklch(0.62 0.24 27);
+}
 
 :root {
-  font-family: 'Noto Sans Mono', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color: var(--color-bh-lgray);
+  font-family: 'Urbanist', sans-serif;
   font-weight: 400;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -10,3 +19,12 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-bh-lgray);
+  font-weight: 700;
+}

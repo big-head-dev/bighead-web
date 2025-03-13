@@ -3,14 +3,10 @@ type Props = {}
 export const Background = ({}: Props) => {
   return (
     <>
-      <div className="absolute top-0 rotate-180 w-dvw -z-99">
-        <img
-          src={astroFrontImg}
-          alt="astronaut close up"
-          className="h-full w-full max-w-[1000px] opacity-20 mx-auto"
-        />
+      <div className="absolute top-0 rotate-180 w-full -z-99">
+        <img src={astroFrontImg} alt="astronaut close up" className="size-fit opacity-20 mx-auto" />
       </div>
-      <div className="absolute bottom-0 overflow-hidden w-dvw -z-98">
+      <div className="fixed bottom-0 w-full overflow-hidden -z-98">
         <div className="flex flex-row items-end justify-between">
           <div
             className="w-[33vw] h-[70vh]"

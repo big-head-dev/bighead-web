@@ -15,10 +15,10 @@ type Props = {
 
 export const CardComponent = ({ card, canFlip, onCardFlip }: Props) => {
   const cardStyling = cn(
-    'flex justify-center items-center rounded drop-shadow-lg bg-bh-lgray w-14 h-18 cursor-pointer transition-transform',
+    'flex justify-center items-center rounded drop-shadow-lg bg-bh-lgray w-14 h-18 cursor-pointer transition-transform hover:scale-105',
     {
-      'duration-300 rotate-y-180 bg-bh-lblue': card.flipped,
-      'duration-0 transform-none bg-bh-green': card.matched,
+      'duration-300 rotate-y-180 bg-bh-lblue hover:scale-none': card.flipped,
+      'duration-0 transform-none bg-bh-green hover:scale-none cursor-default': card.matched,
     }
   )
   const cardTextStyling = cn('md:text-xl', {

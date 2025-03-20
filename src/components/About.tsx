@@ -3,12 +3,12 @@ import astroFrontImg from '/astro-looking-forward.webp'
 type Props = {}
 export const About = ({}: Props) => {
   return (
-    <section className="w-sm md:w-3xl mx-auto mt-15 md:mt-24 md:text-lg">
+    <section className="w-sm md:w-3xl mx-auto mt-15 md:text-lg p-5 md:text-lg">
       <h2 className="text-3xl md:text-4xl">Who Am I?</h2>
       <img
         src={astroFrontImg}
         alt="astronaut"
-        className="rounded-full size-30 object-contain not-md:hidden md:float-left md:m-3"
+        className="rounded-full size-30 object-contain float-right md:float-left md:m-3"
       />
       <div>
         <p>

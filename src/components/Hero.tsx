@@ -1,7 +1,7 @@
 type Props = {}
 export const Hero = ({}: Props) => {
   return (
-    <section className="flex justify-center mt-15">
+    <section className="flex justify-center mt-5 md:mt-15">
       <ul className="text-bh-green font-bold text-4xl md:text-5xl ">
         <li className="mb-3">20+ years experience</li>
         <li className="mb-3">14 companies</li>

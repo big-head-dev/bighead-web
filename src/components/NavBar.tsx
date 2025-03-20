@@ -26,7 +26,7 @@ export const NavBar = ({ className, children, ...props }: Props) => {
         className
       )}
       {...props}>
-      <img fetchpriority="high" src={bhLogo} alt="bighead development" className="w-30 md:w-50" />
+      <img fetchPriority="high" src={bhLogo} alt="bighead development" className="w-30 md:w-50" />
       {children}
     </nav>
   )

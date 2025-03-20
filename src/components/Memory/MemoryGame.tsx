@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react'
-import { fyShuffle } from '../../utils/random'
+import { fyShuffle } from '../../utils/tools'
 import { Card, CardComponent } from './Card'
 import { cn } from '../../utils/cn'
 
@@ -70,7 +70,7 @@ const MemoryGame = ({ className, content }: Props) => {
 
   return (
     <div className={cn('relative', className)}>
-      <div className="grid grid-cols-4  justify-around items-center gap-5 p-4 rounded-2xl border-1 border-bh-green">
+      <div className="grid grid-cols-4 justify-evenly items-center gap-5 p-4 rounded border-2 border-bh-lblue/50">
         {cards.map((card) => (
           <CardComponent
             key={card.id}
@@ -84,8 +84,8 @@ const MemoryGame = ({ className, content }: Props) => {
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-bh-dblue/40">
           <div className="flex flex-col gap-2 -rotate-25">
             <span
-              className="text-4xl font-bold text-bh-red"
-              style={{ textShadow: '1px 1px 2px var(--color-bh-lgray' }}>
+              className="text-4xl font-bold text-bh-lgray"
+              style={{ textShadow: '1px 1px 2px var(--color-bh-red' }}>
               You won!
             </span>
             <button

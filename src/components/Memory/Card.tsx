@@ -1,4 +1,5 @@
 import { cn } from '../../utils/cn'
+import cardIcon from '/android-chrome-192x192.png'
 
 export interface Card {
   id: number
@@ -27,7 +28,13 @@ export const CardComponent = ({ card, canFlip, onCardFlip }: Props) => {
   })
   return (
     <div key={card.id} className={cardStyling} onClick={() => canFlip && onCardFlip(card.id)}>
-      <div className={cardTextStyling}>{card.flipped || card.matched ? card.content : '❓'}</div>
+      <div className={cardTextStyling}>
+        {card.flipped || card.matched ? (
+          <span>{card.content}</span>
+        ) : (
+          <img src={cardIcon} className="rounded-full size-fit" />
+        )}
+      </div>
     </div>
   )
 }

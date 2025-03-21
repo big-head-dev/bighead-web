@@ -2,12 +2,14 @@ import { useState, useMemo, useEffect } from 'react'
 import { fyShuffle } from '../../utils/tools'
 import { Card, CardComponent } from './Card'
 import { cn } from '../../utils/cn'
+import { useHireMeModalContext } from '../../providers/ModalProvider'
 
 type Props = {
   className: string
   content: string[]
 }
 const MemoryGame = ({ className, content }: Props) => {
+  const { openHireMe } = useHireMeModalContext()
   const [cards, setCards] = useState<Card[]>([])
 
   const flippedCardIds = useMemo(() => cards.filter((card) => card.flipped).map((card) => card.id), [cards])
@@ -51,7 +53,7 @@ const MemoryGame = ({ className, content }: Props) => {
         id: index,
         content,
         flipped: false,
-        matched: false,
+        matched: true,
       }))
     )
   }
@@ -65,7 +67,8 @@ const MemoryGame = ({ className, content }: Props) => {
   }
 
   const hireMeClick = () => {
-    //TODO: go to modal form
+    initializeGame()
+    openHireMe()
   }
 
   return (

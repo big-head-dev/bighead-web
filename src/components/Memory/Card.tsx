@@ -32,7 +32,7 @@ export const CardComponent = ({ card, canFlip, onCardFlip }: Props) => {
         {card.flipped || card.matched ? (
           <span>{card.content}</span>
         ) : (
-          <img src={cardIcon} className="rounded-full size-fit" />
+          <img src={cardIcon} className="w-12 h-fit rounded-full " />
         )}
       </div>
     </div>

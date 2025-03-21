@@ -1,13 +1,10 @@
 # Bighead.dev website
 
+Landing page for bighead development. A very light info page with some interactive components. Responsive, minimal library usage, pure React site.
+
 ## TODO:
 
-- [ ] Add provider for stocks
-- [ ] Dev stock tiles
-- [ ] Test motion
 - [ ] Add more about content
-- [ ] Add contact modal
 - [ ] Add nav items
-- [ ] Wire up google analytics
 - [ ] Track number of match games played
 - [ ] Track "click through"

@@ -53,7 +53,7 @@ const MemoryGame = ({ className, content }: Props) => {
         id: index,
         content,
         flipped: false,
-        matched: true,
+        matched: false,
       }))
     )
   }

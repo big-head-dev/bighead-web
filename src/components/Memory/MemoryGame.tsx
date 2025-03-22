@@ -67,7 +67,7 @@ const MemoryGame = ({ className, content }: Props) => {
   }
 
   const hireMeClick = () => {
-    initializeGame()
+    // initializeGame()
     openHireMe()
   }
 

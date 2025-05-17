@@ -4,7 +4,7 @@ export const Background = ({}: Props) => {
   return (
     <>
       <div className="absolute top-0 rotate-180 w-full -z-99">
-        <img src={astroFrontImg} alt="astronaut close up" className="size-fit opacity-20 mx-auto" />
+        <img src={astroFrontImg} alt="astronaut close up" className="object-fit opacity-20 mx-auto" />
       </div>
       <div className="fixed bottom-0 flex flex-row items-end justify-between overflow-hidden -z-98">
         <div

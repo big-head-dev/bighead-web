@@ -23,7 +23,7 @@ export const NavBar = ({ className, children, ...props }: Props) => {
     <nav
       className={cn(
         'flex flex-row items-center gap-4 px-5 md:px-10 md:py-5 py-2 h-sm w-full transition-colors duration-300 ease-in',
-        scrolled ? 'bg-gradient-to-b from-bh-dblue to-bh-dblue/70 hover:to-bh-dblue/90' : 'bg-transparent',
+        scrolled ? 'bg-linear-to-b from-bh-dblue to-bh-dblue/70 hover:to-bh-dblue/90' : 'bg-transparent',
         className
       )}
       {...props}>

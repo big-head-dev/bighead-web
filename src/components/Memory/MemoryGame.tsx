@@ -2,14 +2,14 @@ import { useState, useMemo, useEffect } from 'react'
 import { fyShuffle } from '../../utils/tools'
 import { Card, CardComponent } from './Card'
 import { cn } from '../../utils/cn'
-import { useHireMeModalContext } from '../../providers/ModalProvider'
+import { useHireMeModal } from '../../providers/modal'
 
 type Props = {
   className: string
   content: string[]
 }
 const MemoryGame = ({ className, content }: Props) => {
-  const { openHireMe } = useHireMeModalContext()
+  const { open } = useHireMeModal()
   const [cards, setCards] = useState<Card[]>([])
 
   const flippedCardIds = useMemo(() => cards.filter((card) => card.flipped).map((card) => card.id), [cards])
@@ -68,7 +68,7 @@ const MemoryGame = ({ className, content }: Props) => {
 
   const hireMeClick = () => {
     // initializeGame()
-    openHireMe()
+    open()
   }
 
   return (

@@ -1,11 +1,11 @@
-import { useHireMeModalContext } from '../../providers/ModalProvider'
+import { useHireMeModal } from '../../providers/modal'
 import { cn } from '../../utils/cn'
 import astroImg from '/astro-looking-forward.webp'
 import closexImg from '/close-x.svg'
 
 export const HireMe = () => {
-  const { isHireMeOpen, closeHireMe } = useHireMeModalContext()
-  if (!isHireMeOpen) return null
+  const { isOpen, close } = useHireMeModal()
+  if (!isOpen) return null
 
   const contactUs = (e: React.MouseEvent) => {
     e.preventDefault()
@@ -16,7 +16,7 @@ export const HireMe = () => {
   return (
     <div
       className={cn('fixed inset-0 bg-black/80 flex justify-center items-center z-100')}
-      onClick={closeHireMe}>
+      onClick={close}>
       <div
         className="relative bg-bh-lgray text-black rounded-sm shadow-lg w-xs md:w-lg p-5 flex flex-col md:flex-row items-center z-101 "
         onClick={(e) => e.stopPropagation()}>
@@ -41,7 +41,7 @@ export const HireMe = () => {
         />
         <button
           className="absolute top-0 left-0 m-1 rounded border border-bh-dgray/50 size-4 cursor-pointer"
-          onClick={closeHireMe}>
+          onClick={close}>
           <img src={closexImg} alt="" />
         </button>
       </div>

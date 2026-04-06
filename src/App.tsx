@@ -7,7 +7,7 @@ import { Background } from './components/Background'
 import { About } from './components/About'
 import { Industry } from './components/Industry'
 import { HireMe } from './components/modals/HireMe'
-import { ModalProvider } from './providers/ModalProvider'
+import { ModalProvider } from './providers/modal'
 
 function App() {
   return (

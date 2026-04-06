@@ -2,7 +2,7 @@ type Props = {}
 export const Footer = ({}: Props) => {
   return (
     <section className="mt-5 py-4 text-xs text-center">
-      <span className="text-md">&copy;</span>2025 bighead development
+      <span className="text-md">&copy;</span>2026 bighead development
     </section>
   )
 }

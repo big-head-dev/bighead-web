@@ -85,7 +85,7 @@ const MemoryGame = ({ className, content }: Props) => {
       </div>
       {gameWon && (
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-bh-dblue/40">
-          <div className="flex flex-col gap-2 -rotate-25">
+          <div className="flex flex-col gap-2">
             <span
               className="text-4xl font-bold text-bh-lgray"
               style={{ textShadow: '1px 1px 2px var(--color-bh-red' }}>

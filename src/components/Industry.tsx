@@ -1,7 +1,6 @@
 import { StockTicker } from './StockTicker/StockTicker'
 
-type Props = {}
-export const Industry = ({}: Props) => {
+export const Industry = () => {
   return (
     <section className="w-sm md:w-3xl mx-auto mt-5 md:mt-10 md:text-lg p-5">
       <h2 className="text-3xl md:text-4xl">Successful software engineer across industries</h2>

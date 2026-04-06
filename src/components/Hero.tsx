@@ -1,5 +1,4 @@
-type Props = {}
-export const Hero = ({}: Props) => {
+export const Hero = () => {
   return (
     <section className="flex justify-center mt-5 md:mt-15">
       <ul className="text-bh-green font-bold text-4xl md:text-5xl ">

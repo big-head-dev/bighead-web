@@ -1,5 +1,4 @@
-type Props = {}
-export const Footer = ({}: Props) => {
+export const Footer = () => {
   return (
     <section className="mt-5 py-4 text-xs text-center">
       <span className="text-md">&copy;</span>2026 bighead development

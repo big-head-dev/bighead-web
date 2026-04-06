@@ -1,8 +1,7 @@
 import { techStack } from '../utils/constants'
 import MemoryGame from './Memory/MemoryGame'
 
-type Props = {}
-export const TechStack = ({}: Props) => {
+export const TechStack = () => {
   return (
     <section className="w-sm md:w-3xl mx-auto mt-5 md:mt-10 md:text-lg p-5">
       <div className=" flex flex-col md:flex-row ">

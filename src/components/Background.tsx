@@ -1,6 +1,5 @@
 import astroFrontImg from '/astro-looking-forward.webp'
-type Props = {}
-export const Background = ({}: Props) => {
+export const Background = () => {
   return (
     <>
       <div className="absolute top-0 rotate-180 w-full -z-99">

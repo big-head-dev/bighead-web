@@ -12,7 +12,7 @@ export const StockTile = ({ symbol }: Props) => {
       return calcPercentChange(stock.openPrice, stock.lastPrice)
     }
     return 0
-  }, [stock?.lastPrice])
+  }, [stock])
 
   return (
     <div

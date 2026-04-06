@@ -3,13 +3,14 @@ import { fyShuffle } from '../../utils/tools'
 import { Card, CardComponent } from './Card'
 import { cn } from '../../utils/cn'
 import { useHireMeModal } from '../../providers/modal'
+import { GameButton } from './GameButton'
 
 type Props = {
   className: string
   content: string[]
 }
 const MemoryGame = ({ className, content }: Props) => {
-  const { open } = useHireMeModal()
+  const { openHireMe } = useHireMeModal()
   const [cards, setCards] = useState<Card[]>([])
 
   const flippedCardIds = useMemo(() => cards.filter((card) => card.flipped).map((card) => card.id), [cards])
@@ -44,10 +45,8 @@ const MemoryGame = ({ className, content }: Props) => {
   }, [flippedCardIds])
 
   const initializeGame = () => {
-    //create the content for the cards
     const shuffledContent = fyShuffle([...content, ...content])
 
-    //assign the cards
     setCards(
       shuffledContent.map((content, index) => ({
         id: index,
@@ -58,18 +57,11 @@ const MemoryGame = ({ className, content }: Props) => {
     )
   }
 
+
   const handleCardFlip = (id: number) => {
     setCards((prevCards) => prevCards.map((card) => (card.id === id ? { ...card, flipped: true } : card)))
   }
-
-  const playAgainClick = () => {
-    initializeGame()
-  }
-
-  const hireMeClick = () => {
-    // initializeGame()
-    open()
-  }
+  const handlePlayAgain = () => initializeGame()
 
   return (
     <div className={cn('relative', className)}>
@@ -88,17 +80,11 @@ const MemoryGame = ({ className, content }: Props) => {
           <div className="flex flex-col gap-2">
             <span
               className="text-4xl font-bold text-bh-lgray"
-              style={{ textShadow: '1px 1px 2px var(--color-bh-red' }}>
+              style={{ textShadow: '1px 1px 2px var(--color-bh-red)' }}>
               You won!
             </span>
-            <button
-              className="bg-bh-dgray p-3 rounded-full hover:bg-bh-dgray cursor-pointer"
-              onClick={playAgainClick}>
-              🚀 Play Again
-            </button>
-            <button className="bg-bh-dgray p-3 rounded-full cursor-pointer" onClick={hireMeClick}>
-              💪 Hire Me
-            </button>
+            <GameButton onClick={handlePlayAgain}>🚀 Play Again</GameButton>
+            <GameButton onClick={openHireMe}>💪 Hire Me</GameButton>
           </div>
         </div>
       )}

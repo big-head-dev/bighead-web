@@ -3,8 +3,7 @@ import { cn } from '../../utils/cn'
 import astroImg from '/astro-looking-forward.webp'
 import closexImg from '/close-x.svg'
 
-type Props = {}
-export const HireMe = ({}: Props) => {
+export const HireMe = () => {
   const { isHireMeOpen, closeHireMe } = useHireMeModalContext()
   if (!isHireMeOpen) return null
 
@@ -41,7 +40,7 @@ export const HireMe = ({}: Props) => {
           className="absolute overflow-hidden bottom-5 -right-2.5 md:top-0 md:right-36 h-16 -rotate-90 md:rotate-180"
         />
         <button
-          className="absolute top-0 left-0 m-1 rounded border-1 border-bh-dgray/50 size-4 cursor-pointer"
+          className="absolute top-0 left-0 m-1 rounded border border-bh-dgray/50 size-4 cursor-pointer"
           onClick={closeHireMe}>
           <img src={closexImg} alt="" />
         </button>

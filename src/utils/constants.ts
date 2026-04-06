@@ -1,6 +1,6 @@
-export const techStack: string[] = ['C#', 'TS/JS', 'CSS', 'Go', 'Java', 'C']
+export const TECH_STACK: string[] = ['C#', 'TS/JS', 'CSS', 'Go', 'Java', 'C']
 
-export const stockSymbols: string[] = [
+export const STOCK_SYMBOLS: string[] = [
   'AAPL',
   'TSLA',
   'GOOG',
@@ -18,3 +18,5 @@ export const stockSymbols: string[] = [
   'GE',
   'HOV',
 ]
+
+export const FLIP_DELAY_MS = 750

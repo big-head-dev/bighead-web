@@ -1,4 +1,4 @@
-import { techStack } from '../utils/constants'
+import { TECH_STACK } from '../utils/constants'
 import MemoryGame from './Memory/MemoryGame'
 
 export const TechStack = () => {
@@ -9,7 +9,7 @@ export const TechStack = () => {
           <h2 className="text-3xl md:text-4xl">Experienced in multiple languages and platforms</h2>
           <p>Play the memory game to find out more!</p>
         </div>
-        <MemoryGame className="mt-2 md:w-2xl" content={techStack} />
+        <MemoryGame className="mt-2 md:w-2xl" content={TECH_STACK} />
       </div>
     </section>
   )

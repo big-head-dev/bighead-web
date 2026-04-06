@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import useStockStore from '../store/useStockStore'
-import { stockSymbols } from '../../../utils/constants'
+import { STOCK_SYMBOLS } from '../../../utils/constants'
 
 const getNextPrice = (lastPrice?: number): number => {
   if (lastPrice == null) {
@@ -18,7 +18,7 @@ export const useMockStockData = () => {
   useEffect(() => {
     const update = () => {
       const updates: Partial<Record<string, { symbol: string; lastPrice: number }>> = {}
-      const symbolsToUpdate = stockSymbols.sort(() => 0.5 - Math.random()).slice(0, 10)
+      const symbolsToUpdate = STOCK_SYMBOLS.sort(() => 0.5 - Math.random()).slice(0, 10)
 
       symbolsToUpdate.forEach((symbol) => {
         const currentStock = useStockStore.getState().stocks[symbol]

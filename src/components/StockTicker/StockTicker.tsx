@@ -1,5 +1,5 @@
 import { cn } from '../../utils/cn'
-import { stockSymbols } from '../../utils/constants'
+import { STOCK_SYMBOLS } from '../../utils/constants'
 import { useMockStockData } from './hooks/useMockStockData'
 import { StockTile } from './StockTile'
 
@@ -12,7 +12,7 @@ export const StockTicker = ({ className }: Props) => {
         'rounded border-2 border-bh-lblue/50 grid grid-cols-4 justify-items-center content-between gap-2 p-2',
         className
       )}>
-      {stockSymbols.sort().map((symbol) => (
+      {STOCK_SYMBOLS.sort().map((symbol) => (
         <StockTile key={symbol} symbol={symbol} />
       ))}
     </div>

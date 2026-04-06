@@ -1,9 +1,10 @@
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo, useEffect, useCallback } from 'react'
 import { fyShuffle } from '../../utils/tools'
 import { Card, CardComponent } from './Card'
 import { cn } from '../../utils/cn'
 import { useHireMeModal } from '../../providers/modal'
 import { GameButton } from './GameButton'
+import { FLIP_DELAY_MS } from '../../utils/constants'
 
 type Props = {
   className: string
@@ -15,16 +16,24 @@ const MemoryGame = ({ className, content }: Props) => {
 
   const flippedCardIds = useMemo(() => cards.filter((card) => card.flipped).map((card) => card.id), [cards])
   const matchedCardIds = useMemo(() => cards.filter((card) => card.matched).map((card) => card.id), [cards])
-  const gameWon = useMemo(() => matchedCardIds.length === cards.length, [matchedCardIds, cards])
+  const gameWon = matchedCardIds.length > 0 && matchedCardIds.length === cards.length
+
+  const initializeGame = useCallback(() => {
+    const shuffledContent = fyShuffle([...content, ...content])
+    setCards(shuffledContent.map((c, index) => ({ id: index, content: c, flipped: false, matched: false })))
+  }, [content])
 
   useEffect(() => {
     initializeGame()
-  }, [])
+  }, [initializeGame])
 
   useEffect(() => {
     if (flippedCardIds.length >= 2) {
       const [firstCardId, secondCardId] = flippedCardIds
-      if (cards[firstCardId].content === cards[secondCardId].content) {
+      const firstCard = cards[firstCardId]
+      const secondCard = cards[secondCardId]
+
+      if (firstCard.content === secondCard.content) {
         setCards((prevCards) =>
           prevCards.map((card) =>
             card.id === firstCardId || card.id === secondCardId
@@ -39,24 +48,10 @@ const MemoryGame = ({ className, content }: Props) => {
               card.id === firstCardId || card.id === secondCardId ? { ...card, flipped: false } : card
             )
           )
-        }, 750)
+        }, FLIP_DELAY_MS)
       }
     }
-  }, [flippedCardIds])
-
-  const initializeGame = () => {
-    const shuffledContent = fyShuffle([...content, ...content])
-
-    setCards(
-      shuffledContent.map((content, index) => ({
-        id: index,
-        content,
-        flipped: false,
-        matched: false,
-      }))
-    )
-  }
-
+  }, [flippedCardIds, cards])
 
   const handleCardFlip = (id: number) => {
     setCards((prevCards) => prevCards.map((card) => (card.id === id ? { ...card, flipped: true } : card)))

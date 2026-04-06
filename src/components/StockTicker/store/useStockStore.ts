@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { stockSymbols } from '../../../utils/constants'
+import { STOCK_SYMBOLS } from '../../../utils/constants'
 
 export interface StockData {
   symbol: string
@@ -13,7 +13,7 @@ interface StockState {
 }
 
 const useStockStore = create<StockState>((set) => ({
-  stocks: stockSymbols.reduce((acc, symbol) => {
+  stocks: STOCK_SYMBOLS.reduce((acc, symbol) => {
     acc[symbol] = { symbol }
     return acc
   }, {} as Record<string, StockData>),

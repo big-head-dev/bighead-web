@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useCallback } from 'react'
+import { useState, useMemo, useCallback } from 'react'
 import { fyShuffle } from '../../utils/tools'
 import { Card, CardComponent } from './Card'
 import { cn } from '../../utils/cn'

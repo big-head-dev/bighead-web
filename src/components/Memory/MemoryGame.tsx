@@ -12,7 +12,14 @@ type Props = {
 }
 const MemoryGame = ({ className, content }: Props) => {
   const { openHireMe } = useHireMeModal()
-  const [cards, setCards] = useState<Card[]>([])
+  const [cards, setCards] = useState<Card[]>(() =>
+    fyShuffle([...content, ...content]).map((c, index) => ({
+      id: index,
+      content: c,
+      flipped: false,
+      matched: false,
+    }))
+  )
 
   const flippedCardIds = useMemo(() => cards.filter((card) => card.flipped).map((card) => card.id), [cards])
   const matchedCardIds = useMemo(() => cards.filter((card) => card.matched).map((card) => card.id), [cards])
@@ -23,39 +30,50 @@ const MemoryGame = ({ className, content }: Props) => {
     setCards(shuffledContent.map((c, index) => ({ id: index, content: c, flipped: false, matched: false })))
   }, [content])
 
-  useEffect(() => {
-    initializeGame()
-  }, [initializeGame])
+  const handleCardFlip = (id: number) => {
+    const flippedCards = cards.filter((card) => card.flipped)
 
-  useEffect(() => {
-    if (flippedCardIds.length >= 2) {
-      const [firstCardId, secondCardId] = flippedCardIds
-      const firstCard = cards[firstCardId]
-      const secondCard = cards[secondCardId]
+    if (flippedCards.length >= 2) {
+      return
+    }
 
-      if (firstCard.content === secondCard.content) {
-        setCards((prevCards) =>
-          prevCards.map((card) =>
-            card.id === firstCardId || card.id === secondCardId
-              ? { ...card, matched: true, flipped: false }
-              : card
+    const card = cards.find((card) => card.id === id)
+
+    if (!card || card.flipped || card.matched) {
+      return
+    }
+
+    const updatedCards = cards.map((card) => (card.id === id ? { ...card, flipped: true } : card))
+
+    if (flippedCards.length === 0) {
+      setCards(updatedCards)
+      return
+    }
+
+    const firstCard = flippedCards[0]
+    const secondCard = card
+
+    if (firstCard.content === secondCard.content) {
+      setCards(
+        updatedCards.map((card) =>
+          card.id === firstCard.id || card.id === secondCard.id
+            ? { ...card, matched: true, flipped: false }
+            : card
+        )
+      )
+    } else {
+      setCards(updatedCards)
+
+      setTimeout(() => {
+        setCards((currentCards) =>
+          currentCards.map((card) =>
+            card.id === firstCard.id || card.id === secondCard.id ? { ...card, flipped: false } : card
           )
         )
-      } else {
-        setTimeout(() => {
-          setCards((prevCards) =>
-            prevCards.map((card) =>
-              card.id === firstCardId || card.id === secondCardId ? { ...card, flipped: false } : card
-            )
-          )
-        }, FLIP_DELAY_MS)
-      }
+      }, FLIP_DELAY_MS)
     }
-  }, [flippedCardIds, cards])
-
-  const handleCardFlip = (id: number) => {
-    setCards((prevCards) => prevCards.map((card) => (card.id === id ? { ...card, flipped: true } : card)))
   }
+
   const handlePlayAgain = () => initializeGame()
 
   return (

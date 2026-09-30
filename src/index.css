@@ -6,7 +6,8 @@
   --color-bh-dgray: oklch(0.2 0 240);
   --color-bh-dblue: oklch(0.15 0.09 264);
   --color-bh-lblue: oklch(0.67 0.14 264);
-  --color-bh-green: oklch(0.8 0.18 142);
+  --color-bh-green: oklch(0.6 0.18 142);
+  --color-bh-greentoo: oklch(0.6 0.18 142);
   --color-bh-red: oklch(0.62 0.24 27);
   --text-xxs: 0.65rem;
 }
